@@ -5,15 +5,15 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0D626215-5274-4D24-9AF1-80BA2C5B66B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareHut.HubspotService", "src\SoftwareHut.HubspotService\SoftwareHut.HubspotService.csproj", "{48C8845B-2495-4B60-A1A5-017ECDFECCF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftwareHut.HubspotService", "src\SoftwareHut.HubspotService\SoftwareHut.HubspotService.csproj", "{48C8845B-2495-4B60-A1A5-017ECDFECCF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2D1BEBEC-B562-468B-93F3-A068C0482998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoftwareHut.HubspotService.Test", "test\SoftwareHut.HubspotService.Test\SoftwareHut.HubspotService.Test.csproj", "{A3C7AFB3-58AD-4A7B-B830-5160D75700C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoftwareHut.HubspotService.Test", "test\SoftwareHut.HubspotService.Test\SoftwareHut.HubspotService.Test.csproj", "{A3C7AFB3-58AD-4A7B-B830-5160D75700C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25889315-53D7-44F3-956C-EC39533E48AF}"
 	ProjectSection(SolutionItems) = preProject
-		README.md = README.md
+		.gitignore = .gitignore
 	EndProjectSection
 EndProject
 Global
