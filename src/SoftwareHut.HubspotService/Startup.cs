@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SoftwareHut.HubspotService.Configurations;
+using SoftwareHut.HubspotService.Extensions;
 
 namespace SoftwareHut.HubspotService
 {
@@ -20,6 +22,9 @@ namespace SoftwareHut.HubspotService
         {
             services.AddControllers();
             services.AddHealthChecks();
+
+            services.AddConfiguration<IHubspotConfiguration, HubspotConfiguration>(
+                Configuration.GetSection(HubspotConfiguration.SectionName));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
