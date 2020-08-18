@@ -3,14 +3,14 @@ using System.Net;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace SoftwareHut.HubspotService.Test.IntegrationTests
+namespace SoftwareHut.HubspotService.Test.IntegrationTests.HealthTests
 {
     [Collection(BootstrappedTestCollection.CollectionName)]
-    public class HealthTests
+    public class HealthTest
     {
         public BootstrappedTestFixture BootstrappedTestFixture { get; }
 
-        public HealthTests(BootstrappedTestFixture bootstrappedTestFixture)
+        public HealthTest(BootstrappedTestFixture bootstrappedTestFixture)
         {
             BootstrappedTestFixture = bootstrappedTestFixture ??
                                       throw new ArgumentNullException(nameof(bootstrappedTestFixture));
