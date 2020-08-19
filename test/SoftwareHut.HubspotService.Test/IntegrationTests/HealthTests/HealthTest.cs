@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Net;
 using System.Threading.Tasks;
+using SoftwareHut.HubspotService.Test.Attributes;
 using Xunit;
 
 namespace SoftwareHut.HubspotService.Test.IntegrationTests.HealthTests
 {
     [Collection(BootstrappedTestCollection.CollectionName)]
+    [ConventionTests]
     public class HealthTest
     {
         public BootstrappedTestFixture BootstrappedTestFixture { get; }
