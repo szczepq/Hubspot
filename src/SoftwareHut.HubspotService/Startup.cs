@@ -1,8 +1,10 @@
+using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Refit;
 using SoftwareHut.HubspotService.Configurations;
 using SoftwareHut.HubspotService.Extensions;
 
@@ -22,9 +24,16 @@ namespace SoftwareHut.HubspotService
         {
             services.AddControllers();
             services.AddHealthChecks();
-
+            //services
             services.AddConfiguration<IHubspotConfiguration, HubspotConfiguration>(
                 Configuration.GetSection(HubspotConfiguration.SectionName));
+
+            // HubspotClient
+            var hubspotConfiguration =
+                Configuration.GetSection(HubspotConfiguration.SectionName).Get<HubspotConfiguration>();
+            services.AddRefitClient<IHubspotClient>()
+                .ConfigureHttpClient(c => c.BaseAddress = new Uri(hubspotConfiguration.BaseUrl));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
