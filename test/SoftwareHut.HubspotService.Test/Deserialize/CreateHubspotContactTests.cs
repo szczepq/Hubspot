@@ -1,0 +1,40 @@
+﻿using Newtonsoft.Json;
+using Quibble.Xunit;
+using SoftwareHut.HubspotService.Models;
+using System.Collections.Generic;
+using Xunit;
+
+namespace SoftwareHut.HubspotService.Test.Deserialize
+{
+    public class CreateHubspotContactTests
+    {
+        [Fact]
+        public void CreateHubspotContact_ShouldBeSerialized()
+        {
+            var expected = @"
+            {
+              ""properties"": [
+                        {
+                            ""property"": ""email"",
+                            ""value"": ""testingapis@hubspot.com""
+                        },
+                        {
+                            ""property"": ""firstname"",
+                            ""value"": ""Adrian""
+                        }
+                    ]
+                }
+            ";
+
+            var newContact = new CreateHubspotContact(
+                new List<CreateContactProperty>
+                {
+                    new CreateContactProperty("email", "testingapis@hubspot.com"),
+                    new CreateContactProperty("firstname", "Adrian"),
+                });
+            var json = JsonConvert.SerializeObject(newContact);
+            
+            JsonAssert.Equal(expected, json);
+        }
+    }
+}

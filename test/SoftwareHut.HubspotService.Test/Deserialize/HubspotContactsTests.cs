@@ -13,24 +13,24 @@ namespace SoftwareHut.HubspotService.Test.Deserialize
         {
             var sampleJson = @"
             {
-              'contacts': [
+              ""contacts"": [
                 {
-                  'vid': 204727,
-                  'identity-profiles': [
+                  ""vid"": 204727,
+                  ""identity-profiles"": [
                     {
-                      'identities': [
+                      ""identities"": [
                         {
-                          'type': 'EMAIL',
-                          'value': 'mgnew-email@hubspot.com'
+                          ""type"": ""EMAIL"",
+                          ""value"": ""mgnew-email@hubspot.com""
                         }]}]},
                 {
-                  'vid': 207303,
-                  'identity-profiles': [
+                  ""vid"": 207303,
+                  ""identity-profiles"": [
                     {
-                      'identities': [
+                      ""identities"": [
                         {
-                          'type': 'EMAIL',
-                          'value': 'email_0be34aebe5@abctest.com',
+                          ""type"": ""EMAIL"",
+                          ""value"": ""email_0be34aebe5@abctest.com"",
                         }]}]}
                 ]}
             ";
