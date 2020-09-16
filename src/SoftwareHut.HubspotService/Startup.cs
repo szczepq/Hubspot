@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Refit;
+using SoftwareHut.HubspotService.Clients;
 using SoftwareHut.HubspotService.Configurations;
 using SoftwareHut.HubspotService.Extensions;
 
