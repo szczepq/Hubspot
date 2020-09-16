@@ -12,7 +12,7 @@ namespace SoftwareHut.HubspotService.Clients
             int count);
 
         [Post("/contacts/v1/contact?hapikey={hapikey}")]
-        Task<HubspotProfile> CreateContactsAsync(
+        Task<HubspotContact> CreateContactsAsync(
             string hapikey,
             CreateHubspotContact contacts);
     }
