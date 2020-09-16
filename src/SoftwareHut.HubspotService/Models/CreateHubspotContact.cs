@@ -7,9 +7,8 @@ namespace SoftwareHut.HubspotService.Models
     public class CreateHubspotContact
     {
         [JsonProperty("properties")]
-        public List<CreateContactProperty> Properties { get; set; }
+        public List<CreateContactProperty> Properties { get;  }
 
-        [JsonConstructor]
         public CreateHubspotContact(List<CreateContactProperty> properties)
         {
             Properties = properties ?? throw new ArgumentNullException(nameof(properties));
@@ -19,12 +18,11 @@ namespace SoftwareHut.HubspotService.Models
     public class CreateContactProperty
     {
         [JsonProperty("property")]
-        public string Property { get; private set; }
+        public string Property { get; }
 
         [JsonProperty("value")]
-        public string Value { get; private set; }
+        public string Value { get; }
 
-        [JsonConstructor]
         public CreateContactProperty(string property, string value)
         {
             Property = property ?? throw new ArgumentNullException(nameof(property));
