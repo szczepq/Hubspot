@@ -1,4 +1,3 @@
-using System;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -8,6 +7,8 @@ using Refit;
 using SoftwareHut.HubspotService.Clients;
 using SoftwareHut.HubspotService.Configurations;
 using SoftwareHut.HubspotService.Extensions;
+using System;
+using SoftwareHut.HubspotService.Mappers;
 
 namespace SoftwareHut.HubspotService
 {
@@ -35,6 +36,8 @@ namespace SoftwareHut.HubspotService
             services.AddRefitClient<IHubspotClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri(hubspotConfiguration.BaseUrl));
 
+            // Mappers
+            services.AddSingleton<IHubspotMapper, HubspotMapper>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
