@@ -2,10 +2,12 @@
 using Quibble.Xunit;
 using SoftwareHut.HubspotService.Models;
 using System.Collections.Generic;
+using SoftwareHut.HubspotService.Test.Attributes;
 using Xunit;
 
 namespace SoftwareHut.HubspotService.Test.Deserialize
 {
+    [IntegrationTests]
     public class CreateHubspotContactTests
     {
         [Fact]

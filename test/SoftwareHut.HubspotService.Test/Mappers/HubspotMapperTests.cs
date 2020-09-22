@@ -3,10 +3,12 @@ using AutoFixture.Xunit2;
 using Xunit;
 using SoftwareHut.HubspotService.Mappers;
 using SoftwareHut.HubspotService.Models;
+using SoftwareHut.HubspotService.Test.Attributes;
 using SoftwareHut.HubspotService.Test.Deserialize;
 
 namespace SoftwareHut.HubspotService.Test.Mappers
 {
+    [IntegrationTests]
     public class HubspotMapperTests : BaseAssertion<HubspotMapper>
     {
         [Theory, AutoData]
