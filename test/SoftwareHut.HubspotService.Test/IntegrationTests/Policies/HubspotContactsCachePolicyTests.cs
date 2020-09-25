@@ -1,9 +1,5 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.Threading.Tasks;
-using FakeItEasy;
+﻿using FakeItEasy;
 using FluentAssertions;
-using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Caching;
 using SoftwareHut.HubspotService.Configurations;
@@ -11,6 +7,8 @@ using SoftwareHut.HubspotService.Models;
 using SoftwareHut.HubspotService.Policies;
 using SoftwareHut.HubspotService.Test.Attributes;
 using SoftwareHut.HubspotService.Test.Deserialize;
+using System;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace SoftwareHut.HubspotService.Test.IntegrationTests.Policies
