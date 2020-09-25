@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SoftwareHut.HubspotService.Configurations
 {
@@ -12,13 +8,13 @@ namespace SoftwareHut.HubspotService.Configurations
         string BaseUrl { get; }
 
     }
-    public class HubspotConfiguration: IHubspotConfiguration
+    public class HubspotConfiguration : IHubspotConfiguration
     {
         public const string SectionName = "Hubspot";
 
         [Required]
         public string HapiKey { get; set; }
-        
+
         [Required]
         public string BaseUrl { get; set; }
     }

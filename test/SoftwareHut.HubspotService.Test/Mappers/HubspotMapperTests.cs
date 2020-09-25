@@ -8,7 +8,7 @@ using SoftwareHut.HubspotService.Test.Deserialize;
 
 namespace SoftwareHut.HubspotService.Test.Mappers
 {
-    [IntegrationTests]
+    [UnitTests]
     public class HubspotMapperTests : BaseAssertion<HubspotMapper>
     {
         [Theory, AutoData]

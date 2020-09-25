@@ -7,7 +7,7 @@ using Xunit;
 namespace SoftwareHut.HubspotService.Test.IntegrationTests.HealthTests
 {
     [Collection(BootstrappedTestCollection.CollectionName)]
-    [ConventionTests]
+    [IntegrationTests]
     public class HealthTest
     {
         public BootstrappedTestFixture BootstrappedTestFixture { get; }

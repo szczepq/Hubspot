@@ -1,6 +1,4 @@
 ﻿using AutoFixture.Idioms;
-using AutoFixture.Xunit2;
-using SoftwareHut.HubspotService.Test.Attributes;
 using Xunit;
 
 namespace SoftwareHut.HubspotService.Test.Deserialize

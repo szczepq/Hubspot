@@ -11,6 +11,13 @@ using SoftwareHut.HubspotService.Extensions;
 using SoftwareHut.HubspotService.Mappers;
 using SoftwareHut.HubspotService.Repositories;
 using System;
+using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
+using Polly.Caching;
+using Polly.Caching.Memory;
+using SoftwareHut.HubspotService.Facades;
+using SoftwareHut.HubspotService.Models;
+using SoftwareHut.HubspotService.Policies;
 
 namespace SoftwareHut.HubspotService
 {
@@ -28,15 +35,29 @@ namespace SoftwareHut.HubspotService
         {
             services.AddControllers();
             services.AddHealthChecks();
-            //services
+            
+            // Configuration
             services.AddConfiguration<IHubspotConfiguration, HubspotConfiguration>(
-                Configuration.GetSection(HubspotConfiguration.SectionName));
+                Configuration.GetSection(HubspotConfiguration.SectionName));          
+            services.AddConfiguration<ICachePolicyConfiguration, CachePolicyConfiguration>(
+                Configuration.GetSection(CachePolicyConfiguration.SectionName));           
+            services.AddConfiguration<IRetryPolicyConfiguration, RetryPolicyConfiguration>(
+                Configuration.GetSection(RetryPolicyConfiguration.SectionName));
 
             // HubspotClient
             var hubspotConfiguration =
                 Configuration.GetSection(HubspotConfiguration.SectionName).Get<HubspotConfiguration>();
             services.AddRefitClient<IHubspotClient>()
                 .ConfigureHttpClient(c => c.BaseAddress = new Uri(hubspotConfiguration.BaseUrl));
+
+            // Facade
+            services.AddSingleton<IHubspotClientFacade, HubspotClientFacade>();
+
+            // Cache policy
+            services.AddMemoryCache();
+            services.AddSingleton<IAsyncCacheProvider, MemoryCacheProvider>();
+            services.AddSingleton<IRetryPolicy, RetryPolicy>();
+            services.AddSingleton<IHubspotContactsCachePolicy, HubspotContactsCachePolicy>();
 
             // Mappers
             services.AddSingleton<IHubspotMapper, HubspotMapper>();

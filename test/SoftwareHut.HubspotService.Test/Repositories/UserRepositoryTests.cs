@@ -13,7 +13,7 @@ using Xunit;
 
 namespace SoftwareHut.HubspotService.Test.Repositories
 {
-    [IntegrationTests]
+    [UnitTests]
     public class UserRepositoryTests: BaseAssertion<UserRepository>
     {
         [Theory, AutoFakeData]

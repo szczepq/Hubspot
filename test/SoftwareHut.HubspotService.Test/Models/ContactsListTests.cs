@@ -4,6 +4,6 @@ using SoftwareHut.HubspotService.Test.Deserialize;
 
 namespace SoftwareHut.HubspotService.Test.Models
 {
-    [IntegrationTests]
+    [UnitTests]
     public class ContactsListTests : BaseAssertion<ContactsList> { }
 }

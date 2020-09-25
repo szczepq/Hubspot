@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace SoftwareHut.HubspotService.Test.IntegrationTests.HealthTests
+namespace SoftwareHut.HubspotService.Test.IntegrationTests
 {
     [CollectionDefinition(CollectionName)]
     public class BootstrappedTestCollection : ICollectionFixture<BootstrappedTestFixture>

@@ -3,6 +3,8 @@ using AutoFixture.AutoFakeItEasy;
 using AutoFixture.Xunit2;
 using SoftwareHut.HubspotService.Models;
 using System;
+using System.Linq;
+using System.Reflection;
 using SoftwareHut.HubspotService.Test.ArgumentSpecimens;
 
 namespace SoftwareHut.HubspotService.Test
@@ -14,6 +16,16 @@ namespace SoftwareHut.HubspotService.Test
             : base(() => new Fixture().Customize(new AutoFakeCustomization()))
         {
         }
+
+        protected AutoFakeDataAttribute(params ICustomization[] customizations)
+            : base(() => new Fixture().Customize(new AutoFakeCustomization(customizations)))
+
+        {
+        }
+        public AutoFakeDataAttribute(Type targetType, string argumentName, object argumentValue)
+            : this(new CustomizationsWithTargetValue(targetType, argumentName, argumentValue))
+        {
+        }
     }
 
     public class AutoFakeCustomization : CompositeCustomization
@@ -22,6 +34,15 @@ namespace SoftwareHut.HubspotService.Test
             : base(
                 new AutoFakeItEasyCustomization { GenerateDelegates = true },
                 new TestCustomization())
+        {
+        }
+
+        public AutoFakeCustomization(params ICustomization[] customizations)
+            : base(customizations.Concat(new ICustomization[]
+            {
+                new AutoFakeItEasyCustomization {GenerateDelegates = true},
+                new TestCustomization()
+            }))
         {
         }
     }

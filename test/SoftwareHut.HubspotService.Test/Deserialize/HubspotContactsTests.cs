@@ -7,7 +7,7 @@ using Xunit;
 
 namespace SoftwareHut.HubspotService.Test.Deserialize
 {
-    [IntegrationTests]
+    [UnitTests]
     public class HubspotContactsTests
     {
         [Fact]
