@@ -15,7 +15,11 @@ using SoftwareHut.HubspotService.Mappers;
 using SoftwareHut.HubspotService.Policies;
 using SoftwareHut.HubspotService.Repositories;
 using System;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using SoftwareHut.HubspotService.Models;
 using SoftwareHut.HubspotService.Services;
+using SoftwareHut.HubspotService.Validators;
 
 namespace SoftwareHut.HubspotService
 {
@@ -33,6 +37,10 @@ namespace SoftwareHut.HubspotService
         {
             services.AddControllers();
             services.AddHealthChecks();
+            services
+                .AddMvc()
+                .AddNewtonsoftJson()
+                .AddFluentValidation();
 
             // Configuration
             services.AddConfiguration<IHubspotConfiguration, HubspotConfiguration>(
@@ -65,6 +73,9 @@ namespace SoftwareHut.HubspotService
 
             // Service
             services.AddTransient<IHubspotService, Services.HubspotService>();
+
+            // Validator
+            services.AddSingleton<IValidator<CreateContact>, CreateContactValidator>();
 
             // SQL
             services.AddDbContext<HubspotDbContext>(options =>

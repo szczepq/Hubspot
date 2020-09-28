@@ -57,6 +57,10 @@ namespace SoftwareHut.HubspotService.Test
             fixture.Customizations.Add(
                 new ConstructorArgumentSpecimen<HubspotIdentity, string>(
                     "value", Faker.Internet.Email));
+
+            fixture.Customizations.Add(
+                new ConstructorArgumentSpecimen<CreateContact, string>(
+                    "email", () => $"{Faker.Name.First()}@softwarehut.com"));
         }
     }
 }
