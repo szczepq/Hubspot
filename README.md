@@ -182,7 +182,14 @@ public static IServiceCollection AddConfiguration<TConfigurationInterface, TConf
 }
 ```
 
-Now when you run an application and if some of the properties or the whole section will be missing you will be notified by en exception.
+And now we can use it
+
+```csharp
+    services.AddConfiguration<IHubspotConfiguration, HubspotConfiguration>(
+        Configuration.GetSection(HubspotConfiguration.SectionName));
+```
+
+When you run an application and some of the properties or the whole section will be missing you will be notified by en exception.
 
 But now you may ask: Where is the test for that? Do you remember our [first test](#Health-test) that is his hidden value?
 Please remove one of the values from `Hubspot` section in `appsettings.json` and run this test. It will fail.
